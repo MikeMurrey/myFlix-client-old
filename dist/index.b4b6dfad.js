@@ -27097,20 +27097,20 @@ class MainView extends (0, _reactDefault.default).Component {
             console.log(error);
         });
     }
-    /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */ setSelectedMovie(newSelectedMovie) {
+    /* When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' property to that movie */ setSelectedMovie(movie) {
         this.setState({
-            selectedMovie: newSelectedMovie
+            selectedMovie: movie
         });
     }
-    /* When a user successfully logs in, this function updates the 'user' property in state to that particular user */ onLoggedIn(user1) {
+    /* When a user successfully logs in, this function updates the 'user' property in state to that particular user */ onLoggedIn(user) {
         this.setState({
-            user: user1
+            user
         });
     }
     render() {
-        const { movies , selectedMovie  } = this.state;
+        const { movies , selectedMovie , user  } = this.state;
         /* If there is no user, the LoginView is rendered.  If there is a user logged in, the user details are passed as a prop to the LoginView */ if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+            onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
             lineNumber: 51,
