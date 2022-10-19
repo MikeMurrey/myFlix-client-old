@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Container, Card, Form, Button } from 'react-bootstrap';
+
+import './login-view.scss';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -15,25 +18,56 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
+  const handleRegisterClick = (e) => {
+    e.preventDefault();
+    props.toRegister();
+  };
+
 
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
+    <Container className="login-container">
+      <Card className="login-card mt-5">
+        <Card.Body>
+          <Card.Title className="text-center" as="h4">
+            Please log in
+          </Card.Title>
+            <Form>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
+              <Form.Group>
+                <Form.Label>Username:</Form.Label>
+                <Form.Control
+                  type="text"
+                  onChange={e => setUsername(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Password:</Form.Label>
+                <Form.Control
+                  type="password"
+                  onChange={e => setPassword(e.target.value)}
+                />
+              </Form.Group>
+
+              <Button className="login-button mt-2 mr-2"
+                variant="primary"
+                type="submit"
+                onClick={handleSubmit}
+                >Log In</Button>
+
+              <Button className="register-button mt-2"
+                variant="secondary"
+                type="submit"
+                onClick={handleRegisterClick}
+                >Register</Button>
+            </Form>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 }
 
 LoginView.propTypes = {
   onLoggedIn: PropTypes.func.isRequired,
+  toRegister: PropTypes.func.isRequired,
 };

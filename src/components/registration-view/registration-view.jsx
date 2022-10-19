@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Form, Button, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
 
 import './registration-view.scss';
-import axios from 'axios';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState("");
@@ -14,17 +13,16 @@ export function RegistrationView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
-    props.Registration(username);
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
+    <Container className="register-container">
+      <Row className="justify-content-md-center">
+        <Col md={5}>
           <CardGroup>
             <Card>
               <Card.Body>
-                <Card.Title>Please Register</Card.Title>
+                <Card.Title className="text-center" as="h4">Please Register</Card.Title>
                   <Form>
                     <Form.Group>
                       <Form.Label>Username:</Form.Label>
@@ -70,10 +68,10 @@ export function RegistrationView(props) {
                       />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit"
+                    <Button className="mt-2" variant="primary" type="submit"
                       onClick={handleSubmit}>
                       Register
-                    </Button>
+                    </Button> 
                   </Form>
               </Card.Body>
             </Card>            
@@ -84,6 +82,4 @@ export function RegistrationView(props) {
   )
 }
 
-RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
-};
+RegistrationView.propTypes = {};

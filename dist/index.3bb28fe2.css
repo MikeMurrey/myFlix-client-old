@@ -1,5 +1,11 @@
 
 
+.login-card {
+  max-width: 500px;
+  margin: auto;
+  position: absolute;
+}
+
 .my-flix {
   color: #4682b4;
 }
