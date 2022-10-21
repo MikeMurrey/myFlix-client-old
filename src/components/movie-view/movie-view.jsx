@@ -10,10 +10,10 @@ export class MovieView extends React.Component {
       <Row>
         <Col lg={8}>
           <div className="movie-view">
-            <div className="movie-poster">
+            <div className="movie-poster mt-3">
               <img src={movie.ImagePath} />
             </div>
-            <div className="movie-title">
+            <div className="movie-title mt-2">
               <span className="label">Title: </span>
               <span className="value">{movie.Title}</span>
             </div>
@@ -30,7 +30,7 @@ export class MovieView extends React.Component {
               <span className="value">{movie.Genre.Name}</span>
             </div>
             <Button
-              className="back-button"
+              className="back-button mt-2"
               variant="secondary"
               onClick={() => {
                 onBackClick(null);

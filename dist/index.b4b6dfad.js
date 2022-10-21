@@ -34812,7 +34812,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                     className: "movie-view",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "movie-poster",
+                            className: "movie-poster mt-3",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                 src: movie.ImagePath
                             }, void 0, false, {
@@ -34826,7 +34826,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "movie-title",
+                            className: "movie-title mt-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                     className: "label",
@@ -34926,7 +34926,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            className: "back-button",
+                            className: "back-button mt-2",
                             variant: "secondary",
                             onClick: ()=>{
                                 onBackClick(null);
