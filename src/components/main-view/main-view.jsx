@@ -22,14 +22,27 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
+    let accessToken = localStorage.getItem("token");
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem("user"),
+      });
+      this.getMovies(accessToken);
+    }
+  }
+
+  getMovies(token) {
     axios
-      .get("https://new-myflix-api.herokuapp.com/movies")
+      .get("https://new-myflix-api.herokuapp.com/movies", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
+        // Assign the result to the state
         this.setState({
           movies: response.data,
         });
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -42,10 +55,15 @@ export class MainView extends React.Component {
   }
 
   /* When a user successfully logs in, this function updates the 'user' property in state to that particular user */
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user,
+      user: authData.user.Username,
     });
+
+    localStorage.setItem("token", authData.token);
+    localStorage.setItem("user", authData.user.Username);
+    this.getMovies(authData.token);
   }
 
   toRegister(registered) {
