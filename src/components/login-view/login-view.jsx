@@ -28,7 +28,7 @@ export function LoginView(props) {
       setPasswordErr("Password Required");
       isReq = false;
     } else if (password.length < 6) {
-      setPassword("Password must be 6 characters long");
+      setPasswordErr("Password must be 6 characters long");
       isReq = false;
     }
 
@@ -75,6 +75,7 @@ export function LoginView(props) {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
+              {/*code added here to display validation error */}
               {usernameErr && <p>{usernameErr}</p>}
             </Form.Group>
 
@@ -85,6 +86,7 @@ export function LoginView(props) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {/* code added here to display validation error */}
               {passwordErr && <p>{passwordErr}</p>}
             </Form.Group>
 
