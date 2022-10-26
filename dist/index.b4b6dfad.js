@@ -32218,7 +32218,7 @@ function RegistrationView(props) {
                                                     onChange: (e)=>setPassword(e.target.value),
                                                     required: true,
                                                     minLength: "8",
-                                                    placeholder: "Must be 8 or more characters"
+                                                    placeholder: "Must be 6 or more characters"
                                                 }, void 0, false, {
                                                     fileName: "src/components/registration-view/registration-view.jsx",
                                                     lineNumber: 101,
