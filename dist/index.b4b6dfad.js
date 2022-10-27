@@ -27199,11 +27199,12 @@ class MainView extends (0, _reactDefault.default).Component {
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         path: "/movies/:movieId",
-                        render: ({ match  })=>{
+                        render: ({ match , history  })=>{
                             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                 md: 8,
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-                                    movie: movies.find((m)=>m._id === match.params.movieId)
+                                    movie: movies.find((m)=>m._id === match.params.movieId),
+                                    onBackClick: ()=>history.goBack()
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false, void 0, void 0);
                         }
@@ -37387,7 +37388,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                             className: "back-button mt-2",
                             variant: "secondary",
                             onClick: ()=>{
-                                onBackClick(null);
+                                onBackClick();
                             },
                             children: "Back"
                         }, void 0, false, {
