@@ -7,6 +7,7 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { DirectorView } from "../director-view/director-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -105,13 +106,34 @@ export class MainView extends React.Component {
               ));
             }}
           />
+
           <Route
+            exact
             path="/movies/:movieId"
             render={({ match, history }) => {
               return (
                 <Col md={8}>
                   <MovieView
                     movie={movies.find((m) => m._id === match.params.movieId)}
+                    onBackClick={() => history.goBack()}
+                  />
+                </Col>
+              );
+            }}
+          />
+
+          <Route
+            exact
+            path="/directors/:name"
+            render={({ match, history }) => {
+              if (movies.length === 0) return <div className="main-view" />;
+              return (
+                <Col md={8}>
+                  <DirectorView
+                    director={
+                      movies.find((m) => m.Director.Name === match.params.name)
+                        .Director
+                    }
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
