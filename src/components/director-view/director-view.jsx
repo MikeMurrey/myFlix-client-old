@@ -4,40 +4,34 @@ import { MovieCard } from "../movie-card/movie-card";
 
 export class DirectorView extends React.Component {
   render() {
-    const { director, onBackClick, movies } = this.props;
+    const { director, onBackClick, directorMovies } = this.props;
 
     return (
       <Container className="director-view">
         <Row>
-          <Col className="label">Name:</Col>
-          <Col className="value">{director.Name}</Col>
+          <Col>
+            <h1>{director.Name}</h1>
+            <p>Birth: {director.Birth}</p>
+            {director.Death > 0 && <p>Death: {director.Death}</p>}
+          </Col>
         </Row>
-
-        <Row className="mt-3">
-          <Col className="label">Birth:</Col>
-          <Col className="value">{director.Birth}</Col>
+        <Row>
+          <Col>{director.Bio}</Col>
         </Row>
-
-        <Row className="mt-3">
-          <Col className="label">Death:</Col>
-          <Col className="value">{director.Death}</Col>
+        <Row>
+          <Col className="mt-3">
+            <h4>Other movies by {director.Name}:</h4>
+          </Col>
         </Row>
-
-        <Row className="mt-3">
-          <Col className="label">Bio:</Col>
-          <Col className="value">{director.Bio}</Col>
-        </Row>
-
-        {/* <Row className="mt-3">
-          {movies.map((movie) => {
+        <Row>
+          {directorMovies?.map((movie) => (
             <Col lg={4} md={6}>
               <MovieCard key={movie._id} movie={movie}>
                 {movie.Title}
               </MovieCard>
-            </Col>;
-          })}
-        </Row> */}
-
+            </Col>
+          ))}
+        </Row>
         <Button
           className="mt-3 backBtn"
           onClick={() => {
