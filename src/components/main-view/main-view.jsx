@@ -7,6 +7,7 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { Menubar } from "../navbar/navbar";
 import { DirectorView } from "../director-view/director-view";
 
 import Row from "react-bootstrap/Row";
@@ -94,6 +95,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
+        <Menubar user={user} />
         <Row className="main-view justify-content-md-center mt-3">
           <Route
             exact
