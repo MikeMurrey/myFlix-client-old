@@ -37,6 +37,7 @@ export class GenreView extends React.Component {
           onClick={() => {
             onBackClick();
           }}
+          variant="secondary"
         >
           Go Back
         </Button>

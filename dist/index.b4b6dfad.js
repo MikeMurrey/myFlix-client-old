@@ -27279,7 +27279,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","../registration-view/registration-view":"3U8r7","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW","../director-view/director-view":"9tpci","../navbar/navbar":"bNPgg","../genre-view/genre-view":"4tuA0"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","../registration-view/registration-view":"3U8r7","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW","../navbar/navbar":"bNPgg","../director-view/director-view":"9tpci","../genre-view/genre-view":"4tuA0"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axiosJs = require("./lib/axios.js");
@@ -41120,7 +41120,125 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}],"9tpci":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}],"bNPgg":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8fd2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8fd2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Menubar", ()=>Menubar);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+function Menubar({ user  }) {
+    const onLoggedOut = ()=>{
+        localStorage.clear();
+        window.open("/", "_self");
+    };
+    const isAuth = ()=>{
+        if (typeof window == "undefined") return false;
+        if (localStorage.getItem("token")) return localStorage.getItem("token");
+        else return false;
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
+        className: "main-nav",
+        sticky: "top",
+        bg: "dark",
+        expand: "lg",
+        variant: "dark",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
+                    className: "navbar-logo",
+                    href: "/",
+                    children: "myFlix"
+                }, void 0, false, {
+                    fileName: "src/components/navbar/navbar.jsx",
+                    lineNumber: 30,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Toggle, {
+                    "aria-controls": "responsive-navbar-nav"
+                }, void 0, false, {
+                    fileName: "src/components/navbar/navbar.jsx",
+                    lineNumber: 33,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
+                    id: "responsive-navbar-nav",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
+                        className: "ml-auto",
+                        children: [
+                            isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                href: `/users/${user}`,
+                                children: user
+                            }, void 0, false, {
+                                fileName: "src/components/navbar/navbar.jsx",
+                                lineNumber: 36,
+                                columnNumber: 26
+                            }, this),
+                            isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                variant: "link",
+                                onClick: onLoggedOut,
+                                children: "Logout"
+                            }, void 0, false, {
+                                fileName: "src/components/navbar/navbar.jsx",
+                                lineNumber: 38,
+                                columnNumber: 15
+                            }, this),
+                            !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                href: "/",
+                                children: "Sign-in"
+                            }, void 0, false, {
+                                fileName: "src/components/navbar/navbar.jsx",
+                                lineNumber: 42,
+                                columnNumber: 27
+                            }, this),
+                            !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                href: "/register",
+                                children: "Sign-up"
+                            }, void 0, false, {
+                                fileName: "src/components/navbar/navbar.jsx",
+                                lineNumber: 43,
+                                columnNumber: 27
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/navbar/navbar.jsx",
+                        lineNumber: 35,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/components/navbar/navbar.jsx",
+                    lineNumber: 34,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/navbar/navbar.jsx",
+            lineNumber: 29,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/navbar/navbar.jsx",
+        lineNumber: 22,
+        columnNumber: 5
+    }, this);
+}
+_c = Menubar;
+var _c;
+$RefreshReg$(_c, "Menubar");
+
+  $parcel$ReactRefreshHelpers$8fd2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9tpci":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ad4a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41246,7 +41364,7 @@ class DirectorView extends (0, _reactDefault.default).Component {
                     onClick: ()=>{
                         onBackClick(null);
                     },
-                    variant: "link",
+                    variant: "secondary",
                     children: "Go Back"
                 }, void 0, false, {
                     fileName: "src/components/director-view/director-view.jsx",
@@ -41267,125 +41385,7 @@ class DirectorView extends (0, _reactDefault.default).Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bNPgg":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8fd2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8fd2.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Menubar", ()=>Menubar);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactBootstrap = require("react-bootstrap");
-function Menubar({ user  }) {
-    const onLoggedOut = ()=>{
-        localStorage.clear();
-        window.open("/", "_self");
-    };
-    const isAuth = ()=>{
-        if (typeof window == "undefined") return false;
-        if (localStorage.getItem("token")) return localStorage.getItem("token");
-        else return false;
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
-        className: "main-nav",
-        sticky: "top",
-        bg: "dark",
-        expand: "lg",
-        variant: "dark",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
-                    className: "navbar-logo",
-                    href: "/",
-                    children: "myFlix"
-                }, void 0, false, {
-                    fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 30,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Toggle, {
-                    "aria-controls": "responsive-navbar-nav"
-                }, void 0, false, {
-                    fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 33,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
-                    id: "responsive-navbar-nav",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
-                        className: "ml-auto",
-                        children: [
-                            isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                href: `/users/${user}`,
-                                children: user
-                            }, void 0, false, {
-                                fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 36,
-                                columnNumber: 26
-                            }, this),
-                            isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                variant: "link",
-                                onClick: onLoggedOut,
-                                children: "Logout"
-                            }, void 0, false, {
-                                fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 38,
-                                columnNumber: 15
-                            }, this),
-                            !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                href: "/",
-                                children: "Sign-in"
-                            }, void 0, false, {
-                                fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 42,
-                                columnNumber: 27
-                            }, this),
-                            !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                href: "/register",
-                                children: "Sign-up"
-                            }, void 0, false, {
-                                fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 43,
-                                columnNumber: 27
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 35,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 34,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 29,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "src/components/navbar/navbar.jsx",
-        lineNumber: 22,
-        columnNumber: 5
-    }, this);
-}
-_c = Menubar;
-var _c;
-$RefreshReg$(_c, "Menubar");
-
-  $parcel$ReactRefreshHelpers$8fd2.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4tuA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4tuA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$377f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41488,6 +41488,7 @@ class GenreView extends (0, _reactDefault.default).Component {
                     onClick: ()=>{
                         onBackClick();
                     },
+                    variant: "secondary",
                     children: "Go Back"
                 }, void 0, false, {
                     fileName: "src/components/genre-view/genre-view.jsx",
