@@ -19,9 +19,7 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       user: null,
-      registered: true,
     };
   }
 
@@ -78,22 +76,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, registered } = this.state;
-
-    if (!registered) return <RegistrationView />;
-
-    /* If there is no user, the LoginView is rendered.  If there is a user logged in, the user details are passed as a prop to the LoginView */
-    if (!user)
-      return (
-        <LoginView
-          onLoggedIn={(user) => this.onLoggedIn(user)}
-          toRegister={(registered) => this.toRegister(registered)}
-        />
-      );
-
-    // Before the movies have been loaded
-    if (movies.length === 0) return <div className="main-view" />;
-
+    const { movies, user } = this.state;
     return (
       <Router>
         <Menubar user={user} />
@@ -102,6 +85,13 @@ export class MainView extends React.Component {
             exact
             path="/"
             render={() => {
+              if (!user)
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
+              if (movies.length === 0) return <div className="main-view" />;
               return movies.map((m) => (
                 <Col md={3} key={m._id}>
                   <MovieCard movie={m} />
@@ -109,11 +99,28 @@ export class MainView extends React.Component {
               ));
             }}
           />
+          <Route
+            path="/register"
+            render={() => {
+              if (user) return <Redirect to="/" />;
+              return (
+                <Col>
+                  <RegistrationView />
+                </Col>
+              );
+            }}
+          />
 
           <Route
-            exact
             path="/movies/:movieId"
             render={({ match, history }) => {
+              if (!user)
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
+              if (movies.length === 0) return <div className="main-view" />;
               return (
                 <Col md={8}>
                   <MovieView
@@ -126,9 +133,14 @@ export class MainView extends React.Component {
           />
 
           <Route
-            exact
             path="/directors/:name"
             render={({ match, history }) => {
+              if (!user)
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
               if (movies.length === 0) return <div className="main-view" />;
               return (
                 <Col md={8}>
@@ -145,9 +157,14 @@ export class MainView extends React.Component {
           />
 
           <Route
-            exact
             path="/genres/:name"
             render={({ match, history }) => {
+              if (!user)
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
               if (movies.length === 0) return <div className="main-view" />;
               return (
                 <Col md={8}>
