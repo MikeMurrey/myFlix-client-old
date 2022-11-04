@@ -1,11 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import {
-  Form,
-  Button,
-  Container,
-  Row,
-  Col,
-  Card,
-  Figure,
-} from "react-bootstrap";
+import PropTypes from "prop-types";
+import { Container, Form, Button, Card, CardGroup, Col } from "react-bootstrap";
